@@ -4,11 +4,11 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <meta name="theme-color" content="#3b0a12" />
-<title>Mohit &  Raman — You're Invited</title>
+<title>Mohit &  Ramanpreet — You're Invited</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Parisienne&family=Cinzel:wght@400;500&family=Amiri:wght@400;700&display=swap" rel="stylesheet" />
-<style> 
+<style>
   :root{
     --wine:#3b0a12;
     --wine-deep:#2a060c;
@@ -187,9 +187,84 @@
   /* story */
   .story{background:var(--cream-warm)}
   .story .title{font-family:'Parisienne',cursive;font-size:2.5rem;color:var(--ink);margin-bottom:1.6rem}
-  .carousel{position:relative;width:min(100%,340px);aspect-ratio:3/4;margin:0 auto;border-radius:8px;overflow:hidden;box-shadow:0 16px 36px rgba(90,15,28,.22)}
-  .slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease;display:flex;align-items:flex-end;justify-content:center;padding:1.4rem;color:#fff}
-  .slide.active{opacity:1}
+  .carousel {
+  position: relative;
+  width: min(100%, 340px);
+  aspect-ratio: 3 / 4;
+  margin: 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 16px 36px rgba(90,15,28,.22);
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition:
+    opacity 0.8s ease,
+    visibility 0.8s ease;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  color: white;
+}
+
+.slide.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.slide img {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  display: block;
+}
+
+/* Dark gradient at bottom so the caption is readable */
+.slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to bottom,
+    transparent 55%,
+    rgba(30, 5, 10, 0.7) 100%
+  );
+
+  z-index: 1;
+}
+
+.slide span {
+  position: relative;
+  z-index: 2;
+
+  margin-bottom: 25px;
+
+  font-family: 'Parisienne', cursive;
+  font-size: 1.5rem;
+
+  color: white;
+
+  text-shadow:
+    0 2px 8px rgba(0,0,0,.7);
+}
+  /* .carousel{position:relative;width:min(100%,340px);aspect-ratio:3/4;margin:0 auto;border-radius:8px;overflow:hidden;box-shadow:0 16px 36px rgba(90,15,28,.22)} */
+  /* .slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease;display:flex;align-items:flex-end;justify-content:center;padding:1.4rem;color:#fff} */
+  /* .slide.active{opacity:1}
   .slide span{font-family:'Parisienne',cursive;font-size:1.5rem;text-shadow:0 2px 12px rgba(0,0,0,.6);position:relative;z-index:2}
   .slide::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(42,6,12,.7))}
   .s1{background:linear-gradient(135deg,#7a1626,#c98a63)
@@ -198,7 +273,7 @@
   .s3{background:linear-gradient(135deg,#8a3b2a,#e0b98a)}
   .dots{display:flex;gap:.5rem;justify-content:center;margin-top:1.1rem}
   .dots i{width:7px;height:7px;border-radius:50%;background:var(--gold-deep);opacity:.35;transition:opacity .3s;cursor:pointer}
-  .dots i.on{opacity:1}
+  .dots i.on{opacity:1} */
 
   /* countdown */
   .count{background:radial-gradient(120% 100% at 50% 0%,#4a0c17,#2a060c);color:var(--cream);border-top:1px solid rgba(216,178,106,.25);border-bottom:1px solid rgba(216,178,106,.25)}
@@ -277,7 +352,7 @@
     <div class="curtain left"></div>
     <div class="curtain right"></div>
     <div class="cover-center">
-      <div class="names">Mohit &amp; Raman</div>
+      <div class="names">Mohit &amp; Ramanpreet</div>
       <div class="tap-ring"></div>
       <div class="tap">Tap to open</div>
     </div>
@@ -296,7 +371,7 @@
           <div class="name">Mohit</div>
           <div class="rel">Son of Mrs. Urmila Devi &amp; Mr. Takdeer Chand</div>
           <div class="amp">&amp;</div>
-          <div class="name">Raman</div>
+          <div class="name">Ramanpreet</div>
           <div class="rel">Daughter of Mrs. Rupinder Kaur &amp; Mr. Gurpreet Singh Bedi</div>
         </div>
         <p class="label forever">As they begin their forever</p>
@@ -340,11 +415,30 @@ two hearts, one journey, and a promise to walk through life together.</p>
       <div class="wrap">
         <p class="label">Our story</p>
         <div class="title">Moments, softly held</div>
-        <div class="carousel" id="carousel">
-          <div class="slide s1 active" style="background-image:url('whereItStarted.jpeg');"><span>Where it began</span></div>
-          <!-- <div class="slide s2"><span>A promise in henna</span></div> -->
-          <div class="slide s3"><span>Hand in hand, always</span></div>
-        </div>
+<div class="carousel" id="carousel">
+
+  <div class="slide active">
+    <img src="./image1.jpeg" alt="Our story">
+    <span>Where it began</span>
+  </div>
+
+  <div class="slide">
+    <img src="./image2.jpeg" alt="Our story">
+    <span>And then there was us</span>
+  </div>
+
+  <div class="slide">
+    <img src="./image3.jpeg" alt="Our story">
+    <span>Hand in hand, always</span>
+  </div>
+
+</div>
+
+<div class="dots" id="dots">
+  <i class="on" data-i="0"></i>
+  <i data-i="1"></i>
+  <i data-i="2"></i>
+</div>
         <div class="dots" id="dots">
           <i class="on" data-i="0"></i><i data-i="1"></i><i data-i="2"></i>
         </div>
@@ -421,7 +515,7 @@ two hearts, one journey, and a promise to walk through life together.</p>
             <!--Haldi and Choodha Ceremony-->
            <div class="card">
             <p class="label">Blessings</p>
-            <div class="vname">Haldi And Dj </div>
+            <div class="vname">Haldi </div>
             <div class="time">Nov 20, 2026 </div>
             <div class="city">Residence, Himachal</div>
             <a class="maps" href="https://maps.app.goo.gl/HTAruSJt2vM7qipbA" target="_blank" rel="noopener">View on Google Maps</a>
@@ -520,19 +614,39 @@ two hearts, one journey, and a promise to walk through life together.</p>
   })();
 
   /* ---------- carousel ---------- */
-  (function(){
-    const slides=[...document.querySelectorAll('.slide')];
-    const dots=[...document.querySelectorAll('#dots i')];
-    let i=0;
-    function go(n){
-      slides[i].classList.remove('active');dots[i].classList.remove('on');
-      i=(n+slides.length)%slides.length;
-      slides[i].classList.add('active');dots[i].classList.add('on');
-    }
-    dots.forEach(d=>d.addEventListener('click',()=>go(+d.dataset.i)));
-    setInterval(()=>go(i+1),3800);
-  })();
+  const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('#dots i');
 
+let currentSlide = 0;
+
+function showSlide(index) {
+
+  slides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === index);
+  });
+
+  dots.forEach((dot, i) => {
+    dot.classList.toggle('on', i === index);
+  });
+
+  currentSlide = index;
+}
+
+/* Click the dots */
+dots.forEach((dot, index) => {
+  dot.addEventListener('click', () => {
+    showSlide(index);
+  });
+});
+
+/* Automatically change image */
+setInterval(() => {
+
+  let nextSlide = (currentSlide + 1) % slides.length;
+
+  showSlide(nextSlide);
+
+}, 4000);
   /* ---------- countdown ---------- */
   (function(){
     const target=new Date('2026-11-21T11:30:00');
